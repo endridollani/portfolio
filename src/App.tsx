@@ -1,9 +1,8 @@
-import { LandingPage } from "@/pages";
+import React from 'react';
+import { LandingPage } from '@/pages';
 
-function App() {
-  return (
-    <LandingPage />
-  )
-}
+const App: React.FC = () => {
+  return <LandingPage />;
+};
 
-export default App
+export default App;
