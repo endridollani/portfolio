@@ -32,13 +32,16 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
   return (
     <div className="space-y-4">
       <div className="space-y-2">
-        <p className="text-[.8rem] text-muted-foreground leading-relaxed">{timeframe}</p>
+        <div className="text-[.8rem] text-muted-foreground leading-relaxed">{timeframe}</div>
         {link ? (
-          <a
-            className="flex items-center gap-2 text-foreground hover:text-accent duration-200 text-xs lg:text-sm font-semibold leading-relaxed"
-            href={link}
-            rel="noopener noreferrer"
-            target="_blank"
+          <div
+            className={cn(
+              'flex items-center gap-2 text-foreground hover:text-accent duration-200 text-xs lg:text-sm font-semibold leading-relaxed',
+              link && 'cursor-pointer',
+            )}
+            {...(link && {
+              onClick: () => window.open(link, '_blank'),
+            })}
           >
             <div className="flex lg:items-center gap-2 flex-col lg:flex-row text-pretty flex-wrap">
               <span>{role}</span>
@@ -57,11 +60,11 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
                 {link ? <ExternalLink className="w-3 h-3" /> : null}
               </a>
             </div>
-          </a>
+          </div>
         ) : (
-          <p className="text-foreground font-semibold leading-relaxed text-[1rem] lg:text-sm">
+          <div className="text-foreground font-semibold leading-relaxed text-[1rem] lg:text-sm">
             {role} — {company}
-          </p>
+          </div>
         )}
         {bullets.length > 0 ? (
           <ul className="list-disc list-outside ml-5 text-muted-foreground text-sm leading-relaxed">
@@ -75,7 +78,7 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
         <div className="space-y-6 pl-4">
           {projects.map((project, index) => (
             <div className="space-y-2" key={index}>
-              <p className="text-sm text-foreground font-medium">
+              <div className="text-sm text-foreground font-medium">
                 <div className="flex lg:items-center gap-2 text-pretty flex-col lg:flex-row">
                   <a
                     className={cn(
@@ -93,7 +96,7 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
                   <Minus className="text-muted-foreground hidden lg:inline" />
                   <span className="text-muted-foreground">{project.role}</span>
                 </div>
-              </p>
+              </div>
               <ul className="list-disc list-outside ml-5 text-muted-foreground text-sm leading-relaxed">
                 {project.bullets.map((point, i) => (
                   <li key={i}>{point}</li>
