@@ -7,8 +7,12 @@ export const useSection = () => {
     return activeSection === section;
   };
 
+  const getSectionId = (section: SectionEnum) => {
+    return `section-${section.toLowerCase().replace(/\s+/g, '-')}`;
+  };
+
   const onSectionChange = (section: SectionEnum) => {
-    const element = document.getElementById(`section-${section}`);
+    const element = document.getElementById(getSectionId(section));
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',

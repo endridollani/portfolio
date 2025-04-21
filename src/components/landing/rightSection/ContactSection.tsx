@@ -3,7 +3,7 @@ import React from 'react';
 import RightSectionTitle from './RightSectionTitle';
 
 export const ContactSection: React.FC = () => (
-  <section className="flex flex-col gap-4" id={`section-${SectionEnum.CONTACT}`}>
+  <section className="flex flex-col gap-4 lg:pb-[10rem]" id="section-contact">
     <RightSectionTitle section={SectionEnum.CONTACT} />
     <p className="text-xs lg:text-sm leading-relaxed">
       If you’d like to get in touch, feel free to reach out via email at{' '}
