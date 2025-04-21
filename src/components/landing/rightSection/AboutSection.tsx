@@ -7,9 +7,10 @@ export const AboutSection: React.FC = () => (
     <RightSectionTitle section={SectionEnum.ABOUT} />
 
     <p className="text-xs lg:text-sm leading-relaxed text-muted-foreground">
-      <span>I build performant digital products</span> that balance
-      <span>technical depth</span> with a great{` `}
-      <span>user experience</span> — from{' '}
+      <span>I build performant digital products</span> that balance{` `}
+      <span>technical depth</span>
+      {` `}with a great{` `}
+      <span>user experience</span> , from{' '}
       <span className="text-white font-medium">mobile apps</span> to{' '}
       <span className="text-white font-medium">web platforms</span>.
     </p>
@@ -27,8 +28,7 @@ export const AboutSection: React.FC = () => (
 
     <p className="text-xs lg:text-sm leading-relaxed text-muted-foreground">
       I’ve contributed to full project cycles — including deployments with{' '}
-      <span className="text-white font-medium">Azure DevOps</span>, containerization with{' '}
-      <span className="text-white font-medium">Docker</span>, and mobile delivery through{' '}
+      <span className="text-white font-medium">Azure DevOps</span> and mobile delivery through{' '}
       <span className="text-white font-medium">App Store Connect</span> and the{' '}
       <span className="text-white font-medium">Play Console</span>.
     </p>
