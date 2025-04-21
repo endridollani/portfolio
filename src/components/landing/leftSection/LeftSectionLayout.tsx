@@ -11,7 +11,7 @@ export const LeftSectionLayout: React.FC<LeftSectionLayoutProps> = ({
   socialLinksContent,
 }) => {
   return (
-    <div className="flex flex-col lg:justify-between items-start lg:h-full lg:gap-0 gap-8">
+    <div className="flex flex-col lg:justify-between items-start lg:h-full lg:gap-0 gap-8 w-full">
       <div className="flex flex-col gap-16" id="left-section">
         {heroContent}
         <NavigationLinks />
