@@ -38,7 +38,7 @@ export const HeroSection: React.FC = () => (
         whileInView="visible"
       >
         <h2 className="text-sm lg:text-[1.25rem] font-normal text-foreground">
-          Full Stack Engineer
+          Full-Stack Engineer
         </h2>
         <h2 className="text-sm lg:text-[1.25rem] font-normal text-muted-foreground">{` / `}</h2>
         <h2

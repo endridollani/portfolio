@@ -6,8 +6,12 @@ import { SocialLink } from './SocialLink';
 export const SocialLinks: React.FC = () => {
   return (
     <>
-      <SocialLink altText="GitHub" icon={linkedInIcon} onClick={() => {}} />
-      <SocialLink altText="LinkedIn" icon={githubIcon} onClick={() => {}} />
+      <SocialLink
+        altText="LinkedIn"
+        href="https://linkedin.com/in/endri-dollani"
+        icon={linkedInIcon}
+      />
+      <SocialLink altText="GitHub" href="https://github.com/endridollani" icon={githubIcon} />
     </>
   );
 };
