@@ -5,7 +5,7 @@ import WorkExperienceItem from './WorkExperienceItem';
 
 export const WorkExperienceSection: React.FC = () => {
   return (
-    <section className="flex flex-col gap-6" id="work-experience">
+    <section className="flex flex-col gap-6" id={`section-${SectionEnum.WORK_EXPERIENCE}`}>
       <RightSectionTitle section={SectionEnum.WORK_EXPERIENCE} />
       <div className="space-y-8">
         <WorkExperienceItem

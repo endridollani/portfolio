@@ -16,7 +16,9 @@ export const LandingPageLayout: React.FC<LandingPageLayoutProps> = ({
         <div className="lg:flex-1 lg:py-24 lg:relative pt-15 pb-8">
           <div className="lg:fixed lg:bottom-24 lg:top-24">{leftContent}</div>
         </div>
-        <div className="flex-1 lg:pt-24 lg:px-12">{rightContent}</div>
+        <div className="flex-1 lg:pt-24 lg:px-12" id="id={`section-${SectionEnum.ABOUT}`}">
+          {rightContent}
+        </div>
       </div>
     </div>
   </PageLayout>

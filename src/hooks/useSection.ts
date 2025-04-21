@@ -7,10 +7,22 @@ export const useSection = () => {
     return activeSection === section;
   };
 
+  const onSectionChange = (section: SectionEnum) => {
+    const element = document.getElementById(`section-${section}`);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: section === SectionEnum.WORK_EXPERIENCE ? 'start' : 'center',
+      });
+    }
+    if (section !== activeSection) {
+      setActiveSection(section);
+    }
+  };
+
   return {
     activeSection,
-    setActiveSection: (section: SectionEnum) =>
-      section !== activeSection && setActiveSection(section),
+    setActiveSection: onSectionChange,
     isActiveSection,
   };
 };

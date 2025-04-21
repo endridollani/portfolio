@@ -3,7 +3,7 @@ import React from 'react';
 import RightSectionTitle from './RightSectionTitle';
 
 export const AboutSection: React.FC = () => (
-  <section className="flex flex-col gap-4" id="introduction">
+  <section className="flex flex-col gap-4" id={`section-${SectionEnum.ABOUT}`}>
     <RightSectionTitle section={SectionEnum.ABOUT} />
 
     <p className="text-xs lg:text-sm leading-relaxed text-muted-foreground">
