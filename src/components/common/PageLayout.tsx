@@ -5,11 +5,9 @@ interface PageLayoutProps {
   children: React.ReactNode;
 }
 
-export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
-  return (
-    <div className="relative w-full h-full">
-      <DynamicParticlesBackground />
-      <div className="relative z-10">{children}</div>
-    </div>
-  );
-};
+export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => (
+  <div className="relative w-full h-full">
+    <DynamicParticlesBackground />
+    <div className="relative z-10">{children}</div>
+  </div>
+);
