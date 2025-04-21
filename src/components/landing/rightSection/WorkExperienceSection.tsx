@@ -1,14 +1,11 @@
+import { SectionEnum } from '@/hooks';
 import React from 'react';
+import RightSectionTitle from './RightSectionTitle';
 
 export const WorkExperienceSection: React.FC = () => {
   return (
     <section className="flex flex-col gap-6" id="work-experience">
-      <div>
-        <h1 className="text:xs font-bold text-muted-foreground opacity-70 leading-8">
-          WORK EXPERIENCE
-        </h1>
-        <div className="border-t border-muted-foreground w-full h-1 mt-1" />
-      </div>
+      <RightSectionTitle section={SectionEnum.WORK_EXPERIENCE} />
 
       <div className="space-y-10">
         {/* Job 1 */}
@@ -18,7 +15,7 @@ export const WorkExperienceSection: React.FC = () => {
             <p className="text-xs lg:text-sm text-foreground font-semibold">
               Full-Stack Developer — AtraX Software Solutions
             </p>
-            <p className="text-xs lg:text-sm text-muted-foreground mt-2 text-pretty">
+            <p className="text-xs lg:text-sm text-muted-foreground mt-2 text-pretty leading-relaxed">
               Led frontend architecture for Remy, a cross-platform food waste management app. Built
               reusable components, integrated AWS services, and implemented CI/CD pipelines on Azure
               DevOps. Delivered a seamless experience across mobile and web using React, React

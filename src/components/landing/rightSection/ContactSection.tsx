@@ -1,13 +1,10 @@
+import { SectionEnum } from '@/hooks';
 import React from 'react';
+import RightSectionTitle from './RightSectionTitle';
 
 export const ContactSection: React.FC = () => (
   <section className="flex flex-col gap-4" id="contact">
-    <div className="opacity-80">
-      <h1 className="text-xs lg:text-sm text-muted-foreground opacity-70 font-bold leading-8 ">
-        CONTACT
-      </h1>
-      <div className="border-t border-muted-foreground w-full h-1" />
-    </div>
+    <RightSectionTitle section={SectionEnum.CONTACT} />
     <p className="text-xs lg:text-sm">
       {`Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
   

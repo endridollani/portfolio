@@ -1,13 +1,7 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import githubIcon from '@/assets/github-mark.svg';
 import linkedInIcon from '@/assets/LI-In-Bug.png';
-
-interface SocialLinkProps {
-  icon: string;
-  altText: string;
-  onClick: () => void;
-}
+import { SocialLink } from './SocialLink';
 
 export const SocialLinks: React.FC = () => {
   return (
@@ -17,13 +11,3 @@ export const SocialLinks: React.FC = () => {
     </>
   );
 };
-
-const SocialLink: React.FC<SocialLinkProps> = ({ icon, altText, onClick }) => (
-  <Button className="hover:bg-transparent m-0 p-0" onClick={onClick} variant="ghost">
-    <img
-      alt={altText}
-      className="w-auto h-6 lg:max-w-10 lg:h-8 cursor-pointer hover:scale-110  transition-transform duration-300 text-white"
-      src={icon}
-    />
-  </Button>
-);

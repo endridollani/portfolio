@@ -1,29 +1,29 @@
 import React from 'react';
+import { NavigationLink } from './NavigationLink';
+import { SectionEnum, useSection } from '@/hooks';
 
 export const NavigationLinks: React.FC = () => {
+  const { isActiveSection, setActiveSection } = useSection();
   return (
     <nav
       className="hidden lg:visible lg:flex lg:flex-col lg:gap-4 lg:items-start lg:align-middle lg:flex-wrap lg:text-pretty"
       id="links"
     >
-      <a
-        className="text-muted-foreground hover:text-foreground relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full"
-        href="#introduction"
-      >
-        INTRODUCTION
-      </a>
-      <a
-        className="text-muted-foreground hover:text-foreground relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full"
-        href="#work-experience"
-      >
-        WORK EXPERIENCE
-      </a>
-      <a
-        className="text-muted-foreground hover:text-foreground relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full"
-        href="#contact"
-      >
-        CONTACT
-      </a>
+      <NavigationLink
+        isActive={isActiveSection(SectionEnum.ABOUT)}
+        onClick={() => setActiveSection(SectionEnum.ABOUT)}
+        sectionId={SectionEnum.ABOUT}
+      />
+      <NavigationLink
+        isActive={isActiveSection(SectionEnum.WORK_EXPERIENCE)}
+        onClick={() => setActiveSection(SectionEnum.WORK_EXPERIENCE)}
+        sectionId={SectionEnum.WORK_EXPERIENCE}
+      />
+      <NavigationLink
+        isActive={isActiveSection(SectionEnum.CONTACT)}
+        onClick={() => setActiveSection(SectionEnum.CONTACT)}
+        sectionId={SectionEnum.CONTACT}
+      />
     </nav>
   );
 };
