@@ -17,17 +17,16 @@ const fadeUp = {
 export const HeroSection: React.FC = () => (
   <section className="flex flex-col gap-4 text-pretty" id="hero">
     <div className="flex flex-col gap-2 flex-wrap text-pretty">
-      <motion.a
-        className="text-4xl lg:text-5xl font-bold cursor-pointer"
+      <motion.span
+        className="text-4xl lg:text-5xl font-bold"
         custom={0}
-        href="#introduction"
         initial="hidden"
         variants={fadeUp}
         viewport={{ once: true }}
         whileInView="visible"
       >
         Endri Dollani
-      </motion.a>
+      </motion.span>
 
       <motion.div
         className="flex flex-row gap-4 items-center align-middle flex-wrap text-pretty"
