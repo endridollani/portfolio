@@ -29,7 +29,6 @@ export const useScrollObserver = () => {
     );
 
     const sections = document.querySelectorAll('section[id]');
-    console.log('useScrollObserver: Observing sections', { sections });
     sections.forEach(section => observer.observe(section));
 
     return () => observer.disconnect();
