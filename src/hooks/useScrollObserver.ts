@@ -8,11 +8,14 @@ export const sectionMap: Record<string, SectionEnum> = {
 };
 
 export const useScrollObserver = () => {
-  const setActiveSection = useActiveSectionStore(state => state.setActiveSection);
+  const { setActiveSection, isProgrammaticScroll } = useActiveSectionStore();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
+        // Don't update if we're programmatically scrolling
+        if (isProgrammaticScroll) return;
+
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute('id');
@@ -32,5 +35,5 @@ export const useScrollObserver = () => {
     sections.forEach(section => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [setActiveSection]);
+  }, [setActiveSection, isProgrammaticScroll]);
 };
