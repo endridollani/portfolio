@@ -13,12 +13,10 @@ export const LandingPageLayout: React.FC<LandingPageLayoutProps> = ({
   <PageLayout>
     <div className="flex lg:flex-row lg:justify-center lg:h-screen flex-col px-6 md:px-12">
       <div className="flex items-start gap-4 flex-col lg:flex-row w-full lg:w-3/4 ">
-        <div className="lg:flex-1 lg:py-24 lg:relative pt-15 pb-8">
+        <div className="lg:flex-1 lg:py-24 lg:relative pt-12 pb-8">
           <div className="lg:fixed lg:bottom-24 lg:top-24">{leftContent}</div>
         </div>
-        <div className="flex-1 lg:pt-24 lg:px-12" id="id={`section-${SectionEnum.ABOUT}`}">
-          {rightContent}
-        </div>
+        <div className="flex-1 lg:pt-24 lg:px-12">{rightContent}</div>
       </div>
     </div>
   </PageLayout>
