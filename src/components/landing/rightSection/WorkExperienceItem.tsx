@@ -30,104 +30,142 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
   projects = [],
 }) => {
   return (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <div className="text-[.8rem] text-muted-foreground leading-relaxed">{timeframe}</div>
-        {link ? (
-          <div
-            className={cn(
-              'flex items-center gap-2 text-foreground hover:text-accent duration-200 text-xs lg:text-sm font-semibold leading-relaxed',
-              link && 'cursor-pointer',
-            )}
-            {...(link && {
-              onClick: () => window.open(link, '_blank'),
-            })}
-          >
-            <div className="flex lg:items-center gap-2 flex-col lg:flex-row text-pretty flex-wrap">
-              <span>{role}</span>
-              <Minus className="hidden xl:inline" />
+    <div className="relative flex gap-6 group">
+      {/* Timeline pulsating circle */}
+      <div className="relative flex-shrink-0 w-6 min-w-6 overflow-visible">
+        {/* Outer pulsating ring */}
+        <div className="absolute left-[calc(0.75rem+0.0625rem)] top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-accent/20 animate-ping" />
+        {/* Main circle */}
+        <div className="absolute left-[calc(0.75rem+0.0625rem)] top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-accent border-2 border-background shadow-lg group-hover:scale-125 transition-transform duration-200" />
+        {/* Inner pulsating ring */}
+        <div className="absolute left-[calc(0.75rem+0.0625rem)] top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-accent/30 animate-pulse" />
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 space-y-4 pb-2">
+        {/* Timeframe badge */}
+        <div className="inline-block">
+          <span className="text-xs font-medium px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">
+            {timeframe}
+          </span>
+        </div>
+
+        {/* Role and Company */}
+        <div className="space-y-2">
+          {link ? (
+            <div className="flex flex-col lg:flex-row lg:items-center gap-2 flex-wrap">
+              <h3 className="text-foreground font-semibold text-base lg:text-lg leading-tight">
+                {role}
+              </h3>
+              <Minus className="hidden lg:inline text-muted-foreground" />
               <a
                 className={cn(
-                  'flex flex-row gap-1 cursor-default text-[1rem] lg:text-sm',
-                  link && 'hover:text-accent duration-200 cursor-pointer',
+                  'inline-flex items-center gap-1.5 text-foreground font-medium text-sm lg:text-base',
+                  'hover:text-accent transition-colors duration-200',
+                  'group/link',
                 )}
-                {...(link && {
-                  href: link,
-                  target: '_blank',
-                })}
+                href={link}
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 {company}
-                {link ? <ExternalLink className="w-3 h-3" /> : null}
+                <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover/link:opacity-100 transition-opacity" />
               </a>
             </div>
-          </div>
-        ) : (
-          <div className="text-foreground font-semibold leading-relaxed text-[1rem] lg:text-sm">
-            {role} — {company}
-          </div>
-        )}
-        {bullets.length > 0 ? (
-          <ul className="list-disc list-outside ml-5 text-muted-foreground text-sm leading-relaxed">
-            {bullets.map((point, i) => (
-              <li key={i}>{point}</li>
+          ) : (
+            <div className="flex flex-col lg:flex-row lg:items-center gap-2 flex-wrap">
+              <h3 className="text-foreground font-semibold text-base lg:text-lg leading-tight">
+                {role}
+              </h3>
+              <Minus className="hidden lg:inline text-muted-foreground" />
+              <span className="text-foreground font-medium text-sm lg:text-base">{company}</span>
+            </div>
+          )}
+
+          {/* Bullet points */}
+          {bullets.length > 0 ? (
+            <ul className="space-y-1.5 mt-3">
+              {bullets.map((point, i) => (
+                <li
+                  className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed"
+                  key={i}
+                >
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-muted-foreground/40 flex-shrink-0" />
+                  <span className="flex-1">{point}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+
+        {/* Projects */}
+        {projects && projects.length > 0 ? (
+          <div className="space-y-6 mt-6 ">
+            {projects.map((project, index) => (
+              <div className="space-y-3" key={index}>
+                <div className="flex flex-col lg:flex-row lg:items-center gap-2 flex-wrap">
+                  {project.link ? (
+                    <a
+                      className={cn(
+                        'inline-flex items-center gap-1.5 text-foreground font-medium text-sm',
+                        'hover:text-accent transition-colors duration-200',
+                        'group/project',
+                      )}
+                      href={project.link}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {project.name}
+                      <ExternalLink className="w-3 h-3 opacity-60 group-hover/project:opacity-100 transition-opacity" />
+                    </a>
+                  ) : (
+                    <span className="text-foreground font-medium text-sm">{project.name}</span>
+                  )}
+                  <Minus className="hidden lg:inline text-muted-foreground" />
+                  <span className="text-muted-foreground text-sm">{project.role}</span>
+                </div>
+                <ul className="space-y-1.5">
+                  {project.bullets.map((point, i) => (
+                    <li
+                      className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed"
+                      key={i}
+                    >
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-muted-foreground/40 flex-shrink-0" />
+                      <span className="flex-1">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                {project.skills.length > 0 ? (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {project.skills.map((skill, i) => (
+                      <span
+                        className="text-xs px-2.5 py-1 rounded-md font-medium bg-muted/50 text-muted-foreground border border-muted-foreground/10"
+                        key={i}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             ))}
-          </ul>
+          </div>
+        ) : null}
+
+        {/* Skills */}
+        {skills.length > 0 ? (
+          <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-muted/30">
+            {skills.map((skill, i) => (
+              <span
+                className="text-xs px-2.5 py-1 rounded-md font-medium bg-muted/50 text-muted-foreground border border-muted-foreground/10"
+                key={i}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         ) : null}
       </div>
-      {projects?.length > 0 ? (
-        <div className="space-y-6 pl-4">
-          {projects.map((project, index) => (
-            <div className="space-y-2" key={index}>
-              <div className="text-sm text-foreground font-medium">
-                <div className="flex lg:items-center gap-2 text-pretty flex-col lg:flex-row">
-                  <a
-                    className={cn(
-                      'flex flex-row gap-1 cursor-default',
-                      project?.link && 'hover:text-accent duration-200 cursor-pointer',
-                    )}
-                    {...(project?.link && {
-                      href: project.link,
-                      target: '_blank',
-                    })}
-                  >
-                    {project.name}
-                    {project?.link ? <ExternalLink className="w-3 h-3" /> : null}
-                  </a>
-                  <Minus className="text-muted-foreground hidden lg:inline" />
-                  <span className="text-muted-foreground">{project.role}</span>
-                </div>
-              </div>
-              <ul className="list-disc list-outside ml-5 text-muted-foreground text-sm leading-relaxed">
-                {project.bullets.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {project.skills.map((skill, i) => (
-                  <span
-                    className="text-xs px-2 py-0.5 rounded-md font-medium bg-muted text-muted-foreground"
-                    key={i}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : null}
-      {skills.length > 0 ? (
-        <div className="flex flex-wrap gap-2 mt-2">
-          {skills.map((skill, i) => (
-            <span
-              className="text-xs px-2 py-0.5 rounded-md font-medium bg-muted text-muted-foreground"
-              key={i}
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      ) : null}
     </div>
   );
 };
