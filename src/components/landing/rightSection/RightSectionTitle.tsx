@@ -14,16 +14,20 @@ const RightSectionTitle: React.FC<RightSectionTitleProps> = ({ section }) => {
     <div>
       <h1
         className={cn(
-          'text-muted-foreground transition-colors duration-200',
-          isActive && 'text-foreground font-medium',
+          'transition-all duration-300',
+          isActive
+            ? 'text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-primary to-yellow-200 animate-gradient-pulse font-medium'
+            : 'text-muted-foreground',
         )}
       >
         {section}
       </h1>
       <div
         className={cn(
-          'border-t border-muted-foreground w-full h-1 mt-1 transition-colors duration-300',
-          isActive && 'lg:border-foreground',
+          'w-full h-1 mt-1 transition-all duration-300',
+          isActive
+            ? 'bg-gradient-to-r from-yellow-200 via-primary to-yellow-200 animate-gradient-pulse'
+            : 'border-t border-muted-foreground',
         )}
       />
     </div>

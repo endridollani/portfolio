@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 
 export enum SectionEnum {
-  ABOUT = 'ABOUT',
+  ABOUT = 'ABOUT ME',
   WORK_EXPERIENCE = 'WORK EXPERIENCE',
   CONTACT = 'CONTACT',
 }
