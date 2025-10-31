@@ -30,10 +30,17 @@ export const useSection = () => {
 
       // ABOUT and WORK_EXPERIENCE scroll to top, CONTACT scrolls to center
       const scrollToTop = section === SectionEnum.ABOUT || section === SectionEnum.WORK_EXPERIENCE;
-      
+
       // Find the scrollable container (RightSectionLayout)
-      const scrollableContainer = element.closest('section[class*="overflow"]') as HTMLElement;
-      const scrollTarget = scrollableContainer || window;
+      // The scrollable container is the parent section element with overflow-y-auto
+      let scrollableContainer: HTMLElement | null = element.parentElement;
+      while (scrollableContainer) {
+        const styles = window.getComputedStyle(scrollableContainer);
+        if (styles.overflowY === 'auto' || styles.overflowY === 'scroll') {
+          break;
+        }
+        scrollableContainer = scrollableContainer.parentElement;
+      }
 
       element.scrollIntoView({
         behavior: 'smooth',
@@ -42,40 +49,39 @@ export const useSection = () => {
 
       // Re-enable scroll observer after scroll completes
       // Use scroll event listener to detect when scrolling actually ends
-      let scrollEndTimer: NodeJS.Timeout;
-      let isScrolling = false;
+      let scrollEndTimer: ReturnType<typeof setTimeout>;
+      let isCleanedUp = false;
+
+      const cleanup = () => {
+        if (isCleanedUp) return;
+        isCleanedUp = true;
+        clearTimeout(scrollEndTimer);
+        clearTimeout(fallbackTimer);
+        setIsProgrammaticScroll(false);
+        if (scrollableContainer) {
+          scrollableContainer.removeEventListener('scroll', handleScroll);
+        } else {
+          window.removeEventListener('scroll', handleScroll);
+        }
+      };
 
       const handleScroll = () => {
-        if (!isScrolling) {
-          isScrolling = true;
-        }
         clearTimeout(scrollEndTimer);
         scrollEndTimer = setTimeout(() => {
-          isScrolling = false;
-          setIsProgrammaticScroll(false);
-          if (scrollTarget === window) {
-            window.removeEventListener('scroll', handleScroll);
-          } else {
-            scrollableContainer?.removeEventListener('scroll', handleScroll);
-          }
+          cleanup();
         }, 150);
       };
 
       // Listen to scroll events on the appropriate container
-      if (scrollTarget === window) {
-        window.addEventListener('scroll', handleScroll, { passive: true });
+      if (scrollableContainer) {
+        scrollableContainer.addEventListener('scroll', handleScroll, { passive: true });
       } else {
-        scrollableContainer?.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('scroll', handleScroll, { passive: true });
       }
 
       // Fallback timeout in case scroll events don't fire properly
-      setTimeout(() => {
-        setIsProgrammaticScroll(false);
-        if (scrollTarget === window) {
-          window.removeEventListener('scroll', handleScroll);
-        } else {
-          scrollableContainer?.removeEventListener('scroll', handleScroll);
-        }
+      const fallbackTimer: ReturnType<typeof setTimeout> = setTimeout(() => {
+        cleanup();
       }, 2000);
     }
   };
