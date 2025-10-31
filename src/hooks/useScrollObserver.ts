@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { SectionEnum, useActiveSectionStore } from './useActiveSectionStore';
 
 export const sectionMap: Record<string, SectionEnum> = {
@@ -9,13 +9,23 @@ export const sectionMap: Record<string, SectionEnum> = {
 
 export const useScrollObserver = () => {
   const { setActiveSection, isProgrammaticScroll } = useActiveSectionStore();
+  const isProgrammaticScrollRef = useRef(isProgrammaticScroll);
+
+  // Keep ref in sync with store value
+  useEffect(() => {
+    isProgrammaticScrollRef.current = isProgrammaticScroll;
+  }, [isProgrammaticScroll]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         // Don't update if we're programmatically scrolling
-        if (isProgrammaticScroll) return;
+        // Use ref to get current value to avoid closure issues
+        if (isProgrammaticScrollRef.current) {
+          return;
+        }
 
+        // When manually scrolling, update active section based on intersection
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute('id');
@@ -35,5 +45,5 @@ export const useScrollObserver = () => {
     sections.forEach(section => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [setActiveSection, isProgrammaticScroll]);
+  }, [setActiveSection]);
 };
