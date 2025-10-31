@@ -1,6 +1,6 @@
 import React from 'react';
-import githubIcon from '@/assets/github-mark.svg';
-import linkedInIcon from '@/assets/LI-In-Bug.png';
+import githubIcon from '@/assets/GitHub.svg';
+import linkedInIcon from '@/assets/LinkedIn.svg';
 import { SocialLink } from './SocialLink';
 
 export const SocialLinks: React.FC = () => {
