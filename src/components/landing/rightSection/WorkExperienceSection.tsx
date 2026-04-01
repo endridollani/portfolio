@@ -18,31 +18,50 @@ export const WorkExperienceSection: React.FC = () => {
             link="https://atrax.al/"
             projects={[
               {
+                name: 'MARS',
+                role: 'Lead Full-Stack Engineer',
+                bullets: [
+                  'Led full-stack delivery for a GIS SaaS platform used to assess renewable-energy site feasibility through complex geospatial workflows',
+                  'Designed end-to-end mapping flows including Catasto and Vincoli layers, multi-level AOI selection, and interactive tools for analysts in the field',
+                  'Built a super-admin portal for managing users, subscriptions, and platform data',
+                  'Implemented billing and subscriptions with Stripe, including automated payments and a manual bank-transfer approval flow',
+                ],
+                skills: [
+                  'React',
+                  'Next.js',
+                  'NestJS',
+                  'TypeScript',
+                  'Zustand',
+                  'TanStack Query',
+                  'Stripe',
+                ],
+              },
+              {
                 name: 'Bridj',
                 role: 'Lead Frontend Developer',
                 bullets: [
-                  'Lead frontend development using NextJS and TypeScript',
-                  'Integrating business logic and Figma designs',
+                  'Architected and built the frontend for an AI-powered marketing intelligence platform using Next.js and TypeScript',
+                  'Owned the frontend foundation including project structure, state management, authentication, authorisation, and backend API integration',
+                  'Partnered with design and backend teams to shape a scalable dashboard experience for growth and RevOps teams',
                 ],
-                skills: ['NextJS', 'TypeScript', 'Figma'],
+                skills: ['Next.js', 'TypeScript', 'Authentication', 'API Integration', 'Figma'],
                 link: 'https://www.bridj.ai/',
               },
               {
                 name: 'Remy',
-                role: 'Lead Frontend Developer',
+                role: 'Lead Frontend Developer (Mobile)',
                 bullets: [
-                  'Led mobile development using React Native and Expo',
-                  'Managed deployments to App Store Connect and Google Play Console',
-                  'Built teaser web app and landing page for early user access',
+                  'Led mobile development for an AI-powered kitchen assistant focused on reducing food waste through smarter ingredient and receipt tracking',
+                  'Built the cross-platform app with React Native and Expo and independently handled App Store Connect and Google Play Console deployments',
+                  'Contributed to the marketing website and teaser web app to unlock early access before full launch',
                 ],
                 link: 'https://www.remyapp.io/',
                 skills: [
                   'React Native',
                   'Expo',
-                  'CI/CD',
                   'App Store Connect',
                   'Google Play Console',
-                  'Docker',
+                  'Cross-Platform Mobile',
                 ],
               },
               {
@@ -58,18 +77,26 @@ export const WorkExperienceSection: React.FC = () => {
               },
               {
                 name: 'Dextrio',
-                role: 'Full-Stack Developer',
+                role: 'Lead Full-Stack Developer',
                 link: 'https://atrax.al/blog/portfolio/dextrio/',
                 bullets: [
-                  'Contributed to an HR SaaS platform using React and NestJS',
-                  'Built and maintained frontend & backend features',
-                  'Managed CI/CD with Azure DevOps',
+                  'Led full-stack development on an HR SaaS platform built with React, NestJS, Redux, and TypeScript',
+                  'Managed CI/CD pipelines through Azure DevOps',
+                  'Extended the product with a cross-platform mobile app built using React Native and Expo',
                 ],
-                skills: ['React', 'NestJS', 'TypeScript', 'Azure DevOps', 'PostgreSQL', 'Docker'],
+                skills: [
+                  'React',
+                  'NestJS',
+                  'Redux',
+                  'TypeScript',
+                  'React Native',
+                  'Expo',
+                  'Azure DevOps',
+                ],
               },
             ]}
-            role="Full-Stack Developer"
-            timeframe="2022 — Present"
+            role="Full-Stack Engineer"
+            timeframe="June 2022 — Present"
           />
 
           <WorkExperienceItem
