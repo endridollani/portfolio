@@ -2,23 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 10 },
+  hidden: { opacity: 0, y: 12 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: i * 0.5,
-      ease: 'easeOut',
+      duration: 0.45,
+      delay: i * 0.12,
+      ease: [0.22, 1, 0.36, 1],
     },
   }),
 };
 
 export const HeroSection: React.FC = () => (
-  <section className="flex flex-col gap-4 text-pretty" id="hero">
-    <div className="flex flex-col gap-2 flex-wrap text-pretty">
-      <motion.span
-        className="text-4xl lg:text-5xl font-bold"
+  <section className="flex flex-col gap-5 text-pretty" id="hero">
+    <div className="flex flex-col gap-3 text-pretty">
+      <motion.h1
+        className="text-4xl font-semibold tracking-tight text-foreground lg:text-[4.1rem] lg:leading-[0.96]"
         custom={0}
         initial="hidden"
         variants={fadeUp}
@@ -26,39 +26,31 @@ export const HeroSection: React.FC = () => (
         whileInView="visible"
       >
         Endri Dollani
-      </motion.span>
+      </motion.h1>
 
       <motion.div
-        className="flex flex-row gap-4 items-center align-middle flex-wrap text-pretty"
+        className="text-pretty"
         custom={1}
         initial="hidden"
         variants={fadeUp}
         viewport={{ once: true }}
         whileInView="visible"
       >
-        <h2 className="text-sm lg:text-[1.25rem] font-normal text-foreground">
+        <h2 className="text-[1.55rem] font-medium tracking-tight text-foreground/92 lg:text-[1.95rem]">
           Full-Stack Engineer
-        </h2>
-        <h2 className="text-sm lg:text-[1.25rem] font-normal text-muted-foreground">{` / `}</h2>
-        <h2
-          className="text-sm lg:text-[1.25rem] font-normal text-transparent bg-clip-text 
-            bg-gradient-to-r from-yellow-200 via-primary to-yellow-200 animate-gradient-pulse"
-        >
-          Mobile & Web
         </h2>
       </motion.div>
     </div>
 
-    <motion.div
+    <motion.p
+      className="max-w-lg text-base leading-7 text-muted-foreground lg:text-[1rem] lg:leading-8"
       custom={2}
       initial="hidden"
       variants={fadeUp}
       viewport={{ once: true }}
       whileInView="visible"
     >
-      <p className="text-xs lg:text-sm text-muted-foreground text-pretty">
-        Crafting apps that work beautifully, inside and out.
-      </p>
-    </motion.div>
+      Shipping reliable products with a focus on maintainability, performance, and delivery.
+    </motion.p>
   </section>
 );

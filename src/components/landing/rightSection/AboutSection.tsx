@@ -3,34 +3,22 @@ import React from 'react';
 import RightSectionTitle from './RightSectionTitle';
 
 export const AboutSection: React.FC = () => (
-  <section className="flex flex-col gap-4" id="section-about">
+  <section className="flex flex-col gap-5 lg:gap-6" id="section-about">
     <RightSectionTitle section={SectionEnum.ABOUT} />
 
-    <p className="text-xs lg:text-sm leading-relaxed text-muted-foreground">
-      <span>I build performant digital products</span> that balance{` `}
-      <span>technical depth</span>
-      {` `}with a great{` `}
-      <span>user experience</span> , from{' '}
-      <span className="text-white font-medium">mobile apps</span> to{' '}
-      <span className="text-white font-medium">web platforms</span>.
+    <p className="max-w-2xl text-sm leading-7 text-foreground/78 lg:text-[1rem] lg:leading-8">
+      <span className="text-white font-medium">Full-stack engineer</span> building production-ready
+      digital products across web and mobile, from GIS SaaS platforms and AI-powered apps to
+      enterprise HR systems and marketing intelligence tools.
     </p>
 
-    <p className="text-xs lg:text-sm leading-relaxed text-muted-foreground">
-      Over the last few years, I&apos;ve worked as a{' '}
-      <span className="text-white font-medium">full-stack engineer</span> on a wide range of
-      applications — from human resources SaaS to production-ready cross-platform tools. My go-to
-      stack includes <span className="text-white font-medium">React</span>,{' '}
-      <span className="text-white font-medium">React Native</span>,{' '}
-      <span className="text-white font-medium">NestJS</span>,{' '}
-      <span className="text-white font-medium">PostgreSQL</span> and{' '}
-      <span className="text-white font-medium">TypeScript</span>.
-    </p>
-
-    <p className="text-xs lg:text-sm leading-relaxed text-muted-foreground">
-      I’ve contributed to full project cycles — including deployments with{' '}
-      <span className="text-white font-medium">Azure DevOps</span> and mobile delivery through{' '}
-      <span className="text-white font-medium">App Store Connect</span> and the{' '}
-      <span className="text-white font-medium">Play Console</span>.
+    <p className="max-w-2xl text-sm leading-7 text-foreground/78 lg:text-[1rem] lg:leading-8">
+      I specialise in{' '}
+      <span className="text-white font-medium">
+        React, React Native, Next.js, NestJS, and TypeScript
+      </span>
+      , with hands-on experience across architecture, billing integrations, geospatial workflows,
+      mobile delivery, and CI/CD.
     </p>
   </section>
 );

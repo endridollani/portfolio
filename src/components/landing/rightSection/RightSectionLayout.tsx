@@ -12,7 +12,7 @@ export const RightSectionLayout: React.FC<RightSectionLayoutProps> = ({
   contactContent,
 }) => {
   return (
-    <section className="pb-24 flex flex-col gap-8 text-muted-foreground text-pretty  overflow-y-auto scroll-smooth no-scrollbar">
+    <section className="flex flex-col gap-10 overflow-y-auto scroll-smooth pb-24 text-muted-foreground text-pretty no-scrollbar lg:gap-12">
       {aboutContent}
       {workExperienceContent}
       {contactContent}

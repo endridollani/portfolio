@@ -15,10 +15,11 @@ export const DynamicParticlesBackground = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10">
-      <div className="absolute inset-0 z-[-2] bg-gradient-animate opacity-20" />
-
-      {init ? <DynamicParticles /> : null}
+    <div className="pointer-events-none fixed inset-0 -z-10">
+      <div className="absolute inset-0 bg-site-surface" />
+      <div className="absolute inset-0 z-[1] bg-site-grid opacity-18" />
+      <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_top,rgba(224,186,122,0.06),transparent_40%)]" />
+      <div className="absolute inset-0 z-[3]">{init ? <DynamicParticles /> : null}</div>
     </div>
   );
 };
