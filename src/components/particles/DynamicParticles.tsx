@@ -3,6 +3,7 @@ import Particles from '@tsparticles/react';
 
 export const DynamicParticles: React.FC = () => (
   <Particles
+    className="absolute inset-0"
     id="tsparticles"
     options={{
       background: {
@@ -11,10 +12,16 @@ export const DynamicParticles: React.FC = () => (
         },
       },
       fullScreen: {
-        enable: true,
-        zIndex: -1,
+        enable: false,
       },
-      fpsLimit: 60,
+      style: {
+        height: '100%',
+        left: '0',
+        position: 'absolute',
+        top: '0',
+        width: '100%',
+      },
+      fpsLimit: 30,
       interactivity: {
         events: {
           onClick: {
@@ -22,7 +29,7 @@ export const DynamicParticles: React.FC = () => (
             mode: 'push',
           },
           onHover: {
-            enable: true,
+            enable: false,
             mode: 'repulse',
           },
         },
@@ -38,43 +45,46 @@ export const DynamicParticles: React.FC = () => (
       },
       particles: {
         color: {
-          value: '#94a3b8',
+          value: '#9eb1cb',
         },
         links: {
-          color: '#94a3b8',
-          distance: 300,
+          color: '#9eb1cb',
+          distance: 200,
           enable: true,
-          opacity: 0.1,
-          width: 2,
+          opacity: 0.09,
+          width: 1,
         },
         move: {
-          direction: 'outside',
+          direction: 'none',
           enable: true,
           outModes: {
-            default: 'bounce',
+            default: 'out',
           },
           random: false,
-          speed: 1,
+          speed: 0.34,
           straight: false,
         },
         number: {
           limit: {
             mode: 'wait',
-            value: 80,
+            value: 72,
           },
           density: {
             enable: true,
           },
-          value: 80,
+          value: 56,
         },
         opacity: {
-          value: 0.1,
+          value: {
+            min: 0.06,
+            max: 0.14,
+          },
         },
         shape: {
           type: 'circle',
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 1, max: 2.8 },
         },
       },
       detectRetina: true,

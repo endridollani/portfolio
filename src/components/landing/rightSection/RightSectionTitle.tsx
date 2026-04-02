@@ -7,11 +7,11 @@ interface RightSectionTitleProps {
 
 const RightSectionTitle: React.FC<RightSectionTitleProps> = ({ section }) => {
   return (
-    <div>
-      <h1 className="transition-all duration-300 font-medium text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-primary to-yellow-200 animate-gradient-pulse">
+    <div className="space-y-3">
+      <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-accent/85">
         {section}
-      </h1>
-      <div className="w-full h-0.5 mt-1 transition-all duration-300 bg-gradient-to-r from-yellow-200 via-primary to-yellow-200 animate-gradient-pulse" />
+      </h2>
+      <div className="h-px w-16 bg-gradient-to-r from-accent/70 to-transparent" />
     </div>
   );
 };

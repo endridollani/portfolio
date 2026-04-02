@@ -14,17 +14,22 @@ export const NavigationLink: React.FC<NavigationLinkProps> = ({
   onClick,
 }) => {
   return (
-    <div
+    <button
       className={cn(
-        'cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-0 after:transition-all after:duration-300 hover:after:w-full transition-all duration-300',
-        isActive
-          ? 'text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-primary to-yellow-200 animate-gradient-pulse after:w-full after:bg-gradient-to-r after:from-yellow-200 after:via-primary after:to-yellow-200 after:animate-gradient-pulse font-medium'
-          : 'text-muted-foreground  hover:text-foreground',
+        'group inline-flex items-center gap-3 text-left text-[0.72rem] font-medium uppercase tracking-[0.22em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+        isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
       )}
       onClick={onClick}
+      type="button"
     >
-      {sectionId}
-    </div>
+      <span
+        className={cn(
+          'h-px w-6 transition-all duration-200',
+          isActive ? 'w-10 bg-accent' : 'bg-border group-hover:w-8 group-hover:bg-muted-foreground',
+        )}
+      />
+      <span>{sectionId}</span>
+    </button>
   );
 };
 

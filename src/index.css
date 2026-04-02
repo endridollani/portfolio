@@ -65,56 +65,56 @@
   --radius: 0.625rem;
 
   /* Base */
-  --background: #0f172a;
-  --foreground: #f8fafc;
+  --background: #0b1120;
+  --foreground: #e5edf7;
 
   /* UI Cards / Popovers */
-  --card: #0f172a;
-  --card-foreground: #f8fafc;
-  --popover: #0f172a;
-  --popover-foreground: #f8fafc;
+  --card: #101827;
+  --card-foreground: #e5edf7;
+  --popover: #101827;
+  --popover-foreground: #e5edf7;
 
   /* Primary */
-  --primary: #fbbd23;
-  --primary-foreground: #0f172a;
+  --primary: #d4a95f;
+  --primary-foreground: #0b1120;
 
   /* Secondary */
-  --secondary: #09090b;
-  --secondary-foreground: #f8fafc;
+  --secondary: #121a2a;
+  --secondary-foreground: #e5edf7;
 
   /* Muted / Subtle UI */
-  --muted: #1e293b;
+  --muted: #162133;
   --muted-foreground: #94a3b8;
 
   /* Accent / Hover states */
-  --accent: #facc15;
-  --accent-foreground: #0f172a;
+  --accent: #e0ba7a;
+  --accent-foreground: #0b1120;
 
   /* Destructive */
   --destructive: #ef4444;
   --destructive-foreground: #f8fafc;
 
   /* Borders / Inputs / Rings */
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #fbbf24;
+  --border: #243041;
+  --input: #243041;
+  --ring: #d4a95f;
 
   /* Chart Colors */
-  --chart-1: #fbbf24;
-  --chart-2: #22d3ee;
-  --chart-3: #818cf8;
-  --chart-4: #4ade80;
-  --chart-5: #f472b6;
+  --chart-1: #d4a95f;
+  --chart-2: #6aa6c8;
+  --chart-3: #8d88df;
+  --chart-4: #5ab794;
+  --chart-5: #ce7d9b;
 
   /* Sidebar */
-  --sidebar: #0f172a;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #fbbf24;
-  --sidebar-primary-foreground: #0f172a;
-  --sidebar-accent: #facc15;
-  --sidebar-accent-foreground: #0f172a;
-  --sidebar-border: #1e293b;
-  --sidebar-ring: #fbbf24;
+  --sidebar: #101827;
+  --sidebar-foreground: #e5edf7;
+  --sidebar-primary: #d4a95f;
+  --sidebar-primary-foreground: #0b1120;
+  --sidebar-accent: #e0ba7a;
+  --sidebar-accent-foreground: #0b1120;
+  --sidebar-border: #243041;
+  --sidebar-ring: #d4a95f;
 }
 
 .dark {
@@ -170,33 +170,19 @@
   }
 }
 
-/* background: linear-gradient(270deg, #0f172a, #1e1b4b, #331462, #0f172a); */
 @layer utilities {
-  .bg-gradient-animate {
-    background: linear-gradient(270deg, #0f132a, #1e1b4b, #331462, #15203a);
-    background-size: 600% 600%;
-    animation: gradientShift 15s alternate infinite;
+  .bg-site-surface {
+    background:
+      radial-gradient(circle at top left, rgb(224 186 122 / 0.1), transparent 30%),
+      radial-gradient(circle at 85% 15%, rgb(106 166 200 / 0.09), transparent 26%),
+      linear-gradient(180deg, #0b1120 0%, #0d1525 45%, #0a101d 100%);
   }
 
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-}
-
-@layer utilities {
-  @keyframes pulse-gradient {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .animate-gradient-pulse {
-    background-size: 200% 200%;
-    animation: pulse-gradient 3s ease-in-out infinite;
+  .bg-site-grid {
+    background-image:
+      linear-gradient(rgb(148 163 184 / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(148 163 184 / 0.05) 1px, transparent 1px);
+    background-size: 84px 84px;
+    mask-image: linear-gradient(to bottom, rgb(0 0 0 / 0.42), transparent 84%);
   }
 }

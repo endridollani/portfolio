@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable prettier/prettier */
 import React from 'react';
 
 interface SocialLinkProps {
@@ -9,10 +7,15 @@ interface SocialLinkProps {
 }
 
 export const SocialLink: React.FC<SocialLinkProps> = ({ icon, altText, href }) => (
-  <a className="hover:bg-transparent m-0 p-0 cursor-pointer" href={href} target="_blank">
+  <a
+    className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/40 transition-colors duration-200 hover:border-accent/40 hover:bg-card/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    href={href}
+    rel="noreferrer"
+    target="_blank"
+  >
     <img
       alt={altText}
-      className="h-6 w-auto lg:h-8 hover:scale-110 transition-transform duration-300"
+      className="h-4.5 w-auto opacity-75 transition-all duration-200 group-hover:scale-105 group-hover:opacity-100 lg:h-5"
       src={icon}
     />
   </a>
