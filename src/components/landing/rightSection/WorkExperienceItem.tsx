@@ -8,6 +8,7 @@ interface ProjectItem {
   bullets: string[];
   skills: string[];
   link?: string;
+  timeframe?: string;
 }
 
 interface WorkExperienceItemProps {
@@ -123,6 +124,11 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
                   )}
                   <Minus className="hidden lg:inline text-muted-foreground" />
                   <span className="text-muted-foreground text-sm">{project.role}</span>
+                  {project.timeframe ? (
+                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-muted/50 text-muted-foreground border border-muted-foreground/10">
+                      {project.timeframe}
+                    </span>
+                  ) : null}
                 </div>
                 <ul className="space-y-1.5">
                   {project.bullets.map((point, i) => (

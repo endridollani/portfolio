@@ -14,89 +14,104 @@ export const WorkExperienceSection: React.FC = () => {
         {/* Timeline items */}
         <div className="space-y-12 lg:space-y-16 overflow-visible">
           <WorkExperienceItem
-            company="AtraX Software Solutions"
+            company="AtraX"
             link="https://atrax.al/"
             projects={[
               {
-                name: 'MARS',
-                role: 'Lead Full-Stack Engineer',
+                name: 'MARS - The New Gravity',
+                role: 'Full Stack Engineer',
+                timeframe: 'Nov 2025 - Present · 6 mos',
                 bullets: [
-                  'Led full-stack delivery for a GIS SaaS platform used to assess renewable-energy site feasibility through complex geospatial workflows',
-                  'Designed end-to-end mapping flows including Catasto and Vincoli layers, multi-level AOI selection, and interactive tools for analysts in the field',
-                  'Built a super-admin portal for managing users, subscriptions, and platform data',
-                  'Implemented billing and subscriptions with Stripe, including automated payments and a manual bank-transfer approval flow',
+                  'Serving as a full-stack engineer on MARS, a GIS SaaS product for renewable energy feasibility analysis',
+                  'Building geospatial workflows that help developers and analysts evaluate sites through complex mapping and spatial data flows',
                 ],
                 skills: [
-                  'React',
                   'Next.js',
                   'NestJS',
                   'TypeScript',
+                  'React',
+                  'GIS',
+                  'Geospatial Analysis',
+                  'SaaS',
                   'Zustand',
                   'TanStack Query',
-                  'Stripe',
                 ],
-              },
-              {
-                name: 'Bridj',
-                role: 'Lead Frontend Developer',
-                bullets: [
-                  'Architected and built the frontend for an AI-powered marketing intelligence platform using Next.js and TypeScript',
-                  'Owned the frontend foundation including project structure, state management, authentication, authorisation, and backend API integration',
-                  'Partnered with design and backend teams to shape a scalable dashboard experience for growth and RevOps teams',
-                ],
-                skills: ['Next.js', 'TypeScript', 'Authentication', 'API Integration', 'Figma'],
-                link: 'https://www.bridj.ai/',
-              },
-              {
-                name: 'Remy',
-                role: 'Lead Frontend Developer (Mobile)',
-                bullets: [
-                  'Led mobile development for an AI-powered kitchen assistant focused on reducing food waste through smarter ingredient and receipt tracking',
-                  'Built the cross-platform app with React Native and Expo and independently handled App Store Connect and Google Play Console deployments',
-                  'Contributed to the marketing website and teaser web app to unlock early access before full launch',
-                ],
-                link: 'https://www.remyapp.io/',
-                skills: [
-                  'React Native',
-                  'Expo',
-                  'App Store Connect',
-                  'Google Play Console',
-                  'Cross-Platform Mobile',
-                ],
-              },
-              {
-                name: 'Toyota',
-                link: 'https://atrax.al/blog/portfolio/toyota/',
-                role: 'Frontend Developer',
-                bullets: [
-                  'Built frontend features in React and TypeScript',
-                  'Integrated data workflows with MongoDB and RabbitMQ',
-                  'Used Docker for local development and testing',
-                ],
-                skills: ['React', 'TypeScript', 'MongoDB', 'RabbitMQ', 'Docker'],
               },
               {
                 name: 'Dextrio',
-                role: 'Lead Full-Stack Developer',
+                role: 'Full Stack Engineer',
+                timeframe: 'Jun 2022 - Present · 3 yrs 11 mos',
                 link: 'https://atrax.al/blog/portfolio/dextrio/',
                 bullets: [
-                  'Led full-stack development on an HR SaaS platform built with React, NestJS, Redux, and TypeScript',
+                  'Served as full-stack engineer on an HR SaaS platform enabling companies to manage their workforce and resources efficiently',
                   'Managed CI/CD pipelines through Azure DevOps',
-                  'Extended the product with a cross-platform mobile app built using React Native and Expo',
+                  'Extended the product with a cross-platform mobile application using React Native and Expo',
+                  'Contributed across frontend and backend throughout the full product lifecycle',
                 ],
                 skills: [
-                  'React',
                   'NestJS',
-                  'Redux',
+                  'PostgreSQL',
+                  'React',
                   'TypeScript',
                   'React Native',
                   'Expo',
                   'Azure DevOps',
                 ],
               },
+              {
+                name: 'Bridj.ai',
+                role: 'Senior Frontend Developer',
+                timeframe: 'Jun 2025 - Nov 2025 · 6 mos',
+                bullets: [
+                  'Architected and built the frontend for an AI-powered marketing intelligence platform that analyses real-time sales conversations, CRM data, and notes',
+                  'Owned the frontend foundation, including project structure, state management, data fetching, authentication, authorisation, and backend API integration',
+                  'Collaborated with design and backend to define UX and API contracts and deliver a production-ready dashboard on a tight timeline',
+                ],
+                skills: ['Next.js', 'NestJS', 'TypeScript'],
+                link: 'https://www.bridj.ai/',
+              },
+              {
+                name: 'Remy - Agentic Food Retail',
+                role: 'Senior Software Engineer',
+                timeframe: 'Mar 2024 - May 2025 · 1 yr 3 mos',
+                bullets: [
+                  'Led mobile development for an AI-powered kitchen assistant focused on reducing food waste through ingredient logging and receipt scanning',
+                  'Built the cross-platform app with React Native and Expo and independently managed App Store Connect and Google Play Console deployments',
+                  'Contributed to the marketing website and teaser web app, bringing early access to mobile features ahead of full launch',
+                ],
+                link: 'https://www.remyapp.io/',
+                skills: [
+                  'React Native',
+                  'React.js',
+                  'Expo',
+                  'TypeScript',
+                  'App Store Connect',
+                  'Google Play Console',
+                ],
+              },
+              {
+                name: 'Toshiko',
+                link: 'https://atrax.al/blog/portfolio/toyota/',
+                role: 'Frontend Developer',
+                timeframe: 'Nov 2022 - Mar 2024 · 1 yr 5 mos',
+                bullets: [
+                  "Developed frontend features in React and TypeScript for Toyota's internal lead management system built on a microfrontend architecture",
+                  'Implemented the full frontend SignalR integration for live updates and backend-triggered notifications',
+                  'Integrated REST APIs and async data flows backed by MongoDB and RabbitMQ to keep lead data in sync across the platform',
+                ],
+                skills: [
+                  'React',
+                  'TypeScript',
+                  'SignalR',
+                  'MongoDB',
+                  'RabbitMQ',
+                  'REST APIs',
+                  'Microfrontends',
+                ],
+              },
             ]}
-            role="Full-Stack Engineer"
-            timeframe="June 2022 — Present"
+            role="Full Stack Engineer"
+            timeframe="Jun 2022 - Present · 3 yrs 11 mos"
           />
 
           <WorkExperienceItem
@@ -110,18 +125,6 @@ export const WorkExperienceSection: React.FC = () => {
             role="Course Instructor"
             skills={['HTML', 'CSS', 'JavaScript', 'Teaching']}
             timeframe="2022 — 2023"
-          />
-
-          <WorkExperienceItem
-            bullets={[
-              'Maintained and monitored internal network infrastructure and local servers',
-              'Provided technical support to government staff and ensured system uptime',
-              'Managed IT assets and documented system maintenance procedures',
-            ]}
-            company="Albania State Police"
-            role="IT Specialist"
-            skills={['Networking', 'Windows Server', 'Support', 'Documentation']}
-            timeframe="2021 — 2022"
           />
 
           <WorkExperienceItem
